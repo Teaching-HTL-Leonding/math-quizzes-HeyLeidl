@@ -1,45 +1,18 @@
-﻿int n1 = 0;
-int n2 = 0;
-int counter = 0;
-string fizz = "Fizz";
-string buzz = "Buzz";
+﻿Console.Clear();
 
-Console.WriteLine("Please enter start value [1..int]:");
-n1 = int.Parse(Console.ReadLine()!);
-Console.WriteLine($"Please enter start value [{n1 + 1}..int]: ");
-n2 = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Type a number to start the hailstone Sequence");
+int i = int.Parse(Console.ReadLine()!);
 
-for (int i = 0; i < 100; i++)
+while (i != 1)
 {
-    Console.Write("*");
-}
-
-Console.WriteLine("");
-
-while (n1 <= n2)
-{
-    if (n1 % 3 == 0 && n1 % 5 != 0)
+    if (i % 2 == 0)
     {
-        Console.Write($"   {fizz}");
-    }
-    else if (n1 % 5 == 0)
-    {
-        Console.Write($"   {buzz}");
-    }
-    else if (n1 % 3 == 0 && n1 % 5 == 0)
-    {
-        Console.Write($"   {fizz}{buzz}");
+        i = i / 2;
+        Console.Write("" + i + " ");
     }
     else
     {
-        Console.Write($"  {n1}");
-
+        i = (3 * i) + 1;
+        Console.Write("" + i + " ");
     }
-
-    if (counter % 10 == 0 && counter != 0)
-    {
-        Console.WriteLine();
-    }
-    n1++;
-    counter++;
 }
